@@ -1,0 +1,24 @@
+Para hacer el primer ejercicio:
+
+Crear el fork del repositorio y usar git clone para clonarlo
+Usar cd para moverse a la carpeta creada
+
+Para el primer Ejercicio:
+Ejecutar el docker compose 1 (sudo docker-compose -f docker-compose-v1.yml up -d)
+Dar permisos a Ejercicio1.sh: (chmod u+x Ejercicio1.sh) y ejecutarlo (./Ejercicio1.sh)
+
+Para el segundo Ejercicio:
+Ejecutar el docker compose 2 (sudo docker-compose -f docker-compose-v2.yml up -d)
+Dar permisos a Ejercicio2.sh: (chmod u+x Ejercicio2.sh) y ejecutarlo (./Ejercicio2.sh)
+Modifique el Paso02.hql agregando un EXIT al final.
+
+Para el tercer Ejercicio:
+
+1. Copiar los datos en data2 del HDFS
+
+2. Modificar el Paso03.hql (al final) para la consulta de agregación x12
+
+2. Dar permisos a Ejercicio3.sh: 
+``` chmod u+x Ejercicio3.sh ```
+3. Ejecutar: 
+``` ./Ejercicio3.sh ``
