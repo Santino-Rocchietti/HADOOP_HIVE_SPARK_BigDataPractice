@@ -1,15 +1,5 @@
 
-# Primero borro si ya existe para cuando hago cambios
-sudo docker exec -it hive-server bash -c "
-cd hive
-cd scripts
-rm Paso03.hql
-cd ..
-cd ..
-exit
-"
-
-# el Paso03.hql necesita sacar los datos de una carpeta /data2/ del HDFS
+# Segun se indica en el Paso03.hql, este debe necesita sacar los datos de una carpeta /data2/ del HDFS
 # Ejecutar comandos dentro del contenedor "namenode"
 
 sudo docker exec -it namenode bash -c " 
@@ -18,14 +8,14 @@ sudo docker exec -it namenode bash -c "
     hdfs dfs -mkdir -p /data2
     exit
 "
-echo "Archivos .csv copiados a HDFS en /user/hadoop/data2/" 
+Resultado: "Archivos .csv copiados a HDFS en /user/hadoop/data2/" 
 
-# Copio el hql al contenedor
+# Copiar el hql al contenedor
 sudo docker cp Paso03.hql hive-server:/opt/hive/scripts/Paso03.hql
 
-# Ejecuto el contenedor
+# Ejecutar el contenedor
 sudo docker exec -it hive-server bash
-# Ejecuto el hql desde el contenedor
+# Ejecutar el hql desde el contenedor
 hive -f /opt/hive/scripts/Paso03.hql
-# Salgo del contenedor
+# Salir del contenedor
 sudo docker exec -it namenode bash -c "exit"
