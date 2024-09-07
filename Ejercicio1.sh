@@ -1,5 +1,5 @@
 #!/bin/bash
-# Primero borro por si ya existe e hice cambios
+# Borrar
 sudo docker exec -it namenode bash -c "
 rm -rf /home/Datasets/
 cd home
@@ -44,7 +44,7 @@ sudo docker exec -it namenode bash -c "
     # Mover archivos .csv desde /home/Datasets a la carpeta HDFS /user/hadoop/data
     hdfs dfs -put /home/Datasets/* /data/ 
     
-    # Salgo del Docker de Hadoop
+    # Salir del docker
     exit
 "
-echo "Archivos .csv copiados a HDFS en /user/hadoop/data/" 
+Hecho "Archivos .csv copiados a HDFS en /user/hadoop/data/" 
