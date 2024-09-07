@@ -22,3 +22,35 @@ Para el tercer Ejercicio:
 ``` chmod u+x Ejercicio3.sh ```
 3. Ejecutar: 
 ``` ./Ejercicio3.sh ``
+
+
+El ejercicio 4 esta explicito en el archivo cargado.
+
+El ejercicio 5 no comprendo muy bien su objetivo mas que el de las pruebas
+
+
+Pasando al ejercicio 6 una vez usado todos los codigos primero cargue el archivo Parquet
+
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col
+
+# Crear una sesión de Spark
+spark = SparkSession.builder \
+    .appName("OutlierDetection") \
+    .getOrCreate()
+
+# Cargar los datos desde el archivo Parquet
+venta_df = spark.read.parquet("hdfs://namenode:9000/data/venta")
+
+Examine los datos:
+
+# Mostrar las primeras filas del DataFrame
+venta_df.show()
+
+# Ver el esquema del DataFrame
+venta_df.printSchema()
+
+Para el filtrado de outliers solo seleccione las columas que queria utilizaer a traves de df.select, lo filtre con df_filtered.approxQuantile y guarde el DataFrame modificado
+
+
+Para el ejercicio 7 use el Paso06_IncrementalVentas.py, cree un script de shell y configure el crontab
