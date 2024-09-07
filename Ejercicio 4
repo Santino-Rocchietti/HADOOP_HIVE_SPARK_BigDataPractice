@@ -1,0 +1,67 @@
+Lo que hice fue realizar una particion a la tabla de venta:
+DROP TABLE IF EXISTS venta;
+CREATE EXTERNAL TABLE IF NOT EXISTS venta (
+  IdVenta				INTEGER,
+  Fecha 				DATE,
+  Fecha_Entrega 		DATE,
+  IdCanal				INTEGER, 
+  IdCliente			INTEGER, 
+  IdSucursal			INTEGER,
+  IdEmpleado			INTEGER,
+  IdProducto			INTEGER,
+  Precio				FLOAT,
+  Cantidad			INTEGER
+)
+PARTITIONED BY (anio INT)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES (
+    'separatorChar'=',',
+    'skip.header.line.count'='1'
+)
+LOCATION '/data/venta';
+
+Para agregar particiones:
+ALTER TABLE venta ADD PARTITION (anio=2023);
+ALTER TABLE venta ADD PARTITION (anio=2024);
+
+
+Hice bucketing en la tabla producto:
+DROP TABLE IF EXISTS producto;
+CREATE EXTERNAL TABLE IF NOT EXISTS producto (
+	IdProducto					INTEGER,
+	Concepto					VARCHAR(100),
+	Tipo						VARCHAR(50),
+	Precio						FLOAT
+)
+CLUSTERED BY (IdProducto) INTO 10 BUCKETS
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES (
+    'separatorChar'=';',
+    'skip.header.line.count'='1'
+)
+LOCATION '/data/producto';
+
+Use el particionamiento en tabla gastos:
+DROP TABLE IF EXISTS gasto;
+CREATE EXTERNAL TABLE IF NOT EXISTS gasto (
+  IdGasto				INTEGER,
+  IdSucursal			INTEGER,
+  Fecha 				DATE,
+  Monto				    FLOAT
+)
+PARTITIONED BY (IdTipoGasto INT)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES (
+    'separatorChar'=',',
+    'skip.header.line.count'='1'
+)
+LOCATION '/data/gasto';
+
+Para agregar particiones:
+ALTER TABLE gasto ADD PARTITION (IdTipoGasto=1);
+ALTER TABLE gasto ADD PARTITION (IdTipoGasto=2);
+
+Prueba de rendimiento:
+SELECT * FROM venta WHERE anio = 2023;
+
+En todos los casos se pudo visibilizar una mejora en el tiempo de rendimiento
