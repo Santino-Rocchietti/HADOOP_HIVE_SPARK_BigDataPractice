@@ -37,9 +37,8 @@ sudo docker cp Datasets/. namenode:/home/Datasets/
 
 # Ejecutar comandos dentro del contenedor "namenode"
 sudo docker exec -it namenode bash -c " 
-    # Borro la carpeta si exite (por si hago cambios) y luego la creo en HDFS
-    hdfs dfs -rm -R /data
-    hdfs dfs -mkdir -p /data
+    # Crear carpeta en HDFS
+      hdfs dfs -mkdir -p /data
 
     # Mover archivos .csv desde /home/Datasets a la carpeta HDFS /user/hadoop/data
     hdfs dfs -put /home/Datasets/* /data/ 
@@ -47,4 +46,4 @@ sudo docker exec -it namenode bash -c "
     # Salir del docker
     exit
 "
-Hecho "Archivos .csv copiados a HDFS en /user/hadoop/data/" 
+Resultado: "Archivos .csv copiados a HDFS en /user/hadoop/data/" 
