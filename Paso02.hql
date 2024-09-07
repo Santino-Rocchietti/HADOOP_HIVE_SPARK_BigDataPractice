@@ -179,3 +179,5 @@ WITH SERDEPROPERTIES (
     'skip.header.line.count'='1'
 )
 LOCATION '/data/proveedor';
+
+EXIT:
