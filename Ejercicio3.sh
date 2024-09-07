@@ -1,5 +1,5 @@
 
-# Segun se indica en el Paso03.hql, este debe necesita sacar los datos de una carpeta /data2/ del HDFS
+# Segun se indica en el Paso03.hql, este necesita sacar los datos de una carpeta /data2/ del HDFS
 # Ejecutar comandos dentro del contenedor "namenode"
 
 sudo docker exec -it namenode bash -c " 
