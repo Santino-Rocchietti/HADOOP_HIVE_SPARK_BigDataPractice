@@ -26,7 +26,47 @@ Para el tercer Ejercicio:
 
 El ejercicio 4 esta explicito en el archivo cargado.
 
-El ejercicio 5 no comprendo muy bien su objetivo mas que el de las pruebas
+El ejercicio 5 muestra distintas cosas
+HBase
+Creación y manejo de datos:
+
+Crea la tabla personal con la columna personal_data.
+Inserta datos en la tabla y consulta los datos almacenados.
+Importación desde CSV:
+
+Sube un archivo CSV a HDFS.
+Utiliza el comando ImportTsv para cargar los datos desde el CSV a la tabla personal en HBase.
+Operaciones adicionales:
+
+Crea y manipula otra tabla llamada album.
+MongoDB
+Importación de datos:
+
+Copia archivos CSV y JSON al contenedor MongoDB.
+Usa mongoimport para cargar datos desde estos archivos a las colecciones iris_csv e iris_json.
+Consulta y exportación de datos:
+
+Accede a MongoDB, consulta los datos en las colecciones y exporta los datos a archivos CSV y JSON.
+Configuración para Hive:
+
+Descarga e importa JARs necesarios para integrar MongoDB con Hive, incluyendo drivers y conectores específicos.
+Neo4J
+Ejemplo de búsqueda del camino más corto:
+
+Crea nodos y relaciones para representar ubicaciones y caminos.
+Usa el algoritmo de Dijkstra para encontrar el camino más corto entre dos ubicaciones.
+Realiza la búsqueda del árbol de expansión mínima (MST) para análisis de logística.
+Carga de datos:
+
+Copia archivos CSV a la carpeta de importación de Neo4J y realiza las operaciones necesarias para cargar y consultar estos datos.
+Zeppelin
+Configuración de HDFS en Zeppelin:
+
+Utiliza WebHDFS para interactuar con HDFS desde Zeppelin.
+Configura el intérprete de HDFS en Zeppelin para facilitar la interacción con HDFS.
+Configuración de Neo4J en Zeppelin:
+
+Configura el intérprete de Neo4J en Zeppelin para conectarte a Neo4J y realizar consultas desde notebooks en Zeppelin.
 
 
 Pasando al ejercicio 6 una vez usado todos los codigos primero cargue el archivo Parquet
